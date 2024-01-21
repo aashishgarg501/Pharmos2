@@ -116,7 +116,7 @@ const Home = () => {
         <img src='\img\runway.jpeg' />
         <img src='\img\startup.jpeg' />
         <h3 className='mt-1'>Email for queries:<span>querypharmos@gmail.com</span></h3>
-        <h4>Kanhaiya Vihar Kargi Grant Dehradun Uttarakhand -248001</h4>
+        <h4 className='pt-0'>Kanhaiya Vihar Kargi Grant Dehradun Uttarakhand -248001</h4>
       </div>
       <ToastContainer />
 
@@ -332,6 +332,9 @@ border-radius:10px !important;
      .section-3 img{
       weight:30px;
       height:40px;
+       }
+       .section-3 h4{
+        font-size:12px;
        }
        .hedding{
         text-align: center;
