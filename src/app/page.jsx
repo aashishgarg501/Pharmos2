@@ -1,12 +1,12 @@
 "use client"
-import React, { useState,useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Select from 'react-select';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Home = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [active, setActive] = useState(true)
-  const currentValue=useRef(null)
+  const currentValue = useRef(null)
   const options = [
     { value: 'DEHRADUN', label: 'Dehradun' },
     { value: 'SAHARANPUR', label: 'Saharanpur' },
@@ -15,28 +15,30 @@ const Home = () => {
   const handleChange = (selectedOption) => {
     setActive(true)
     setSelectedOption(selectedOption);
-    currentValue.current.innerText=""
+    currentValue.current.innerText = ""
   };
   const checkAvailability = () => {
     if (selectedOption.value === "DEHRADUN") {
       setActive(false)
-      currentValue.current.innerText=""
+      currentValue.current.innerText = ""
     } else {
       setActive(true)
-      currentValue.current.innerText="Unfortunately, we are not delivering in your area, yet."
+      currentValue.current.innerText = "Unfortunately, we are not delivering in your area, yet."
     }
   }
+
   const handleOrderClick = () => {
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const phoneNumber = '+918077989600';
+
     if (isIOS) {
       // Open in WhatsApp app for iOS
-      window.location.href = 'whatsapp://send?phone=8171286360';
+      window.location.href = `whatsapp://send?phone=${phoneNumber}`;
     } else {
       // Open in web fallback for other browsers
-      window.open('https://wa.me/8171286360', '_blank');
+      window.open(`https://wa.me/${phoneNumber}`, '_blank');
     }
   };
-
   return (
     <div>
       <div className='logo-1' >
@@ -45,7 +47,7 @@ const Home = () => {
       <div className='container mt-4 mb-4 section'>
         <div className='row align-items-center'>
           <div className='col-12 col-md-5'>
-            <h1 className='hedding pb-4'>Medicine Delivery  <br></br>in <span >30 mins</span></h1>
+            <h1 className='hedding pb-4'>Same Day Medicine Delivery</h1>
             <img src='/img/heroDesktop.png' className='img-right-mobile' />
             <h3 className='hedding-1 pb-4'>Get <span>15% off </span> on orders</h3>
             <div className='pb-0 input-section'>
@@ -59,13 +61,13 @@ const Home = () => {
                   options={options}
                   isSearchable={true} // Enables search functionality
                   placeholder="Search or select..."
-                />
+                                />
               </div>
               <button className='btns ' onClick={checkAvailability}>
                 Check Availability
               </button>
             </div>
-            <div className="" style={{height:"30px",color:"red",fontSize:"12px"}}>
+            <div className="" style={{ height: "30px", color: "red", fontSize: "12px" }}>
               <p className='ms-5 ms-md-0 mb-0' ref={currentValue}></p>
             </div>
             <div className='pb-4 orders1'>
@@ -110,10 +112,11 @@ const Home = () => {
         </div>
       </div>
       <div className='section-3'>
-        <p className='foter'>Backed by
-          <img src='/img/yc_icon.png' /></p>
-        <h3>Email for queries:<span>founders@medobed.com</span></h3>
-        <h4>L-2/605, Katara Hills, Bhopal 462043 (M. P.)</h4>
+        <p className='foter pt-3 mb-0'>Supported By</p>
+        <img src='\img\runway.jpeg' />
+        <img src='\img\startup.jpeg' />
+        <h3 className='mt-1'>Email for queries:<span>querypharmos@gmail.com</span></h3>
+        <h4>Kanhaiya Vihar Kargi Grant Dehradun Uttarakhand -248001</h4>
       </div>
       <ToastContainer />
 
@@ -133,7 +136,7 @@ const Home = () => {
   font-size: 2.25rem;
   font-weight:300;
  }
-  .input{
+   .input{
     width: 50%;
     border: none;
   }
@@ -240,7 +243,7 @@ font-size:24px;
  }
  .section-3 img{
   weight:200px;
-  height:80px;
+  height:50px;
    }
  .section-3 h3{
   font-size:16px;
@@ -266,14 +269,20 @@ border:1px solid #10C3C7 !important;
 border-radius:10px !important;
    }
    :global(.css-t3ipsp-control:hover){
-    border-color:red !important;
+    border-color:#10C3C7 !important;
     border:1px solid #10C3C7 !important;
+    box-shadow: none !important;
+    border-radius:10px !important;
+    height:48px !important;
        }
    :global(.css-1u9des2-indicatorSeparator){
     border:none !important;
    }
-   :global(.css-1xc3v61-indicatorContainer ){
-    color:#10C3C7;
+   :global(.css-1xc3v61-indicatorContainer){
+    color:#10C3C7 !important;
+   }
+   :global(.css-tj5bde-Svg){
+    color:#10C3C7 !important;
    }
    @media only screen and (min-width: 300px) and (max-width: 767px) {
     .section{
@@ -322,7 +331,7 @@ border-radius:10px !important;
          }
      .section-3 img{
       weight:30px;
-      height:70px;
+      height:40px;
        }
        .hedding{
         text-align: center;
@@ -363,7 +372,8 @@ height:44px;
         height:150px;
         margin-top:-20px;
        }
-   }
+          }
+   
  `
       }</style>
     </div>
